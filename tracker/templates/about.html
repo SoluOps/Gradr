@@ -1,0 +1,6 @@
+{% extends 'base.html' %} <!--Extends from 'base.html' class and adds content inside block  
+{% block content %}
+<h2 style="text-align: center; font-family: 'Arial', sans-serif;">About:</h2>
+<p>Gradr is a simple grade tracking app designed to help teachers keep track of their grades. It allows you to add, edit, and delete grades, and provides a simple interface for managing grades.</p>
+<a href={% url 'index' %}>Home</a>
+{% endblock %}

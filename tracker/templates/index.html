@@ -1,0 +1,32 @@
+{% extends 'base.html' %} <!--Extends from 'base.html' class and adds content inside block-->
+{% block content %}
+<h1 style="text-align: center; font-family: 'Arial', sans-serif;">Gradr</h1>
+<form method="post" action="{% url 'index' %}"> <!--passing data into django server to do 'action'-->
+{% csrf_token %} <!-- security bypass token as POST requests are protected -->
+<table class="table table-bordered table-light">
+<tr><th>Name</th><th>Score</th><th>Action</th></tr>
+{% if not form.instance.id %}
+<tr>
+	{% include 'save.html' %}
+</tr> 
+{% endif %}
+{% for score in scores %}
+	<tr>
+	{% if form.instance.id == score.id %}
+	{% include 'save.html' %} 
+	{% else %}
+	 <td>{{score.name}}</td>
+	 <td>{{score.value}}</td>
+	 <td><button class="btn btn-info" formnovalidate name="edit" value="{{score.id}}">Edit</button></td>
+	 <td><button class="btn btn-danger" formnovalidate name="delete" value="{{score.id}}">Delete</button></td>
+	{% endif %}
+	</tr>
+{%endfor%}
+</table>
+</form> <!--proper HTML format = table inside form-->
+<a href="{% url 'about' %}">About Page</a>
+{% endblock %}
+
+
+
+
