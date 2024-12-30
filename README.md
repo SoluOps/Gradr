@@ -11,7 +11,7 @@ Date created: 27-01-2024
 - **Responsive Design**: Styled with Bootstrap to ensure minimalistic design.
 - **Data Persistence**: Reliable storage of all student scores and related data using SQLite.
 
-## Technologies Used
+## Technologies 
 
 ### Backend
 
